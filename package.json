@@ -1,0 +1,16 @@
+{
+  "name": "angry-merge",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha index-spec.js",
+    "test-watch": "mocha index-spec.js --watch"
+  },
+  "author": "tom@jelen.dk",
+  "license": "UNLICENSE",
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "chai": "^1.10.0"
+  }
+}
