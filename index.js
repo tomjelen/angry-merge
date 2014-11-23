@@ -5,7 +5,11 @@ function merge(defaults, specifiedData) {
   var merged = {};
 
   for (var prop in defaults) {
-    merged[prop] = specifiedData[prop] || defaults[prop];
+    if (typeof defaults[prop] === 'object') {
+      merged[prop] = merge(defaults[prop], specifiedData[prop]);
+    } else {
+      merged[prop] = (specifiedData && specifiedData[prop]) || defaults[prop];
+    }
   }
 
   if (isOverSpecified(defaults, specifiedData))
