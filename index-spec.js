@@ -1,3 +1,4 @@
+'use strict';
 var expect = require('chai').expect;
 var angryMerge = require('./index');
 
@@ -56,81 +57,81 @@ describe('angry merge', function() {
 function createExamples() {
   return [
     {
-      "name": "flat objects",
-      "defaultData": {
-        "a": "a",
-        "b": "b"
+      name: 'flat objects',
+      defaultData: {
+        a: 'a',
+        b: 'b'
       },
-      "specifiedData": {
-        "a": "x"
+      specifiedData: {
+        a: 'x'
       },
-      "expected": {
-        "a": "x",
-        "b": "b"
+      expected: {
+        a: 'x',
+        b: 'b'
       }
     },
     {
-      "name": "nesting - simple",
-      "defaultData": {
-        "a": "a",
-        "b": "b",
-        "nested": {
-          "aa": "aa",
-          "bb": "bb"
+      name: 'nesting - simple',
+      defaultData: {
+        a: 'a',
+        b: 'b',
+        nested: {
+          aa: 'aa',
+          bb: 'bb'
         }
       },
-      "specifiedData": {
-        "a": "x",
-        "nested": {
-          "aa": "xx"
+      specifiedData: {
+        a: 'x',
+        nested: {
+          aa: 'xx'
         }
       },
-      "expected": {
-        "a": "x",
-        "b": "b",
-        "nested": {
-          "aa": "xx",
-          "bb": "bb"
-        }
-      }
-    },
-    {
-      "name": "nesting - no specification for the nested props",
-      "defaultData": {
-        "a": "a",
-        "nested": {
-          "aa": "aa"
-        }
-      },
-      "specifiedData": {
-        "a": "x"
-      },
-      "expected": {
-        "a": "x",
-        "nested": {
-          "aa": "aa"
+      expected: {
+        a: 'x',
+        b: 'b',
+        nested: {
+          aa: 'xx',
+          bb: 'bb'
         }
       }
     },
     {
-      "name": "nesting - only the nested props has specification",
-      "defaultData": {
-        "a": "a",
-        "nested": {
-          "aa": "aa"
+      name: 'nesting - no specification for the nested props',
+      defaultData: {
+        a: 'a',
+        nested: {
+          aa: 'aa'
         }
       },
-      "specifiedData": {
-        "nested": {
-          "aa": "xx"
+      specifiedData: {
+        a: 'x'
+      },
+      expected: {
+        a: 'x',
+        nested: {
+          aa: 'aa'
+        }
+      }
+    },
+    {
+      name: 'nesting - only the nested props has specification',
+      defaultData: {
+        a: 'a',
+        nested: {
+          aa: 'aa'
         }
       },
-      "expected": {
-        "a": "a",
-        "nested": {
-          "aa": "xx"
+      specifiedData: {
+        nested: {
+          aa: 'xx'
+        }
+      },
+      expected: {
+        a: 'a',
+        nested: {
+          aa: 'xx'
         }
       }
     }
-  ]
+  ];
 }
