@@ -1,4 +1,4 @@
-module.exports = merge;
+'use strict';
 
 function merge(defaults, specifiedData) {
 
@@ -27,3 +27,5 @@ function isOverSpecified(defaults, specifiedData) {
 
   return false;
 }
+
+module.exports = merge;
